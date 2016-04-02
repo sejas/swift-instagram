@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qMw-tK-Qer">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="PDP-mt-O60">
+            <objects>
+                <navigationController id="qMw-tK-Qer" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Juy-Xh-Ocs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="I3p-GN-hFq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2C-yj-qIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-477" y="389"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="CollectionViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FKh-eR-EDr">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hJx-oC-JHw">
+                                    <size key="itemSize" width="204" height="184"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionCell" id="QGJ-1q-Twx" customClass="CollectionViewCell" customModule="instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="184"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="204" height="184"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mzZ-ft-0K8">
+                                                    <rect key="frame" x="0.0" y="0.0" width="204" height="184"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="mzZ-ft-0K8" firstAttribute="leading" secondItem="QGJ-1q-Twx" secondAttribute="leading" id="MY6-UK-F2W"/>
+                                            <constraint firstAttribute="trailing" secondItem="mzZ-ft-0K8" secondAttribute="trailing" id="bdZ-Qn-VAW"/>
+                                            <constraint firstAttribute="bottom" secondItem="mzZ-ft-0K8" secondAttribute="bottom" id="u2A-9T-v7F"/>
+                                            <constraint firstItem="mzZ-ft-0K8" firstAttribute="top" secondItem="QGJ-1q-Twx" secondAttribute="top" id="y4z-5m-Xb6"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="img" destination="mzZ-ft-0K8" id="wN4-Dw-jB1"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="yM9-ph-oNN"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="J2g-PO-1Sf"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FKh-eR-EDr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ghv-sp-Rco"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FKh-eR-EDr" secondAttribute="bottom" id="WbF-a3-Fdk"/>
+                            <constraint firstAttribute="trailing" secondItem="FKh-eR-EDr" secondAttribute="trailing" id="aME-kS-yyb"/>
+                            <constraint firstItem="FKh-eR-EDr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="udT-08-z9t"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="TmE-ux-W6U"/>
+                    <connections>
+                        <outlet property="collection" destination="FKh-eR-EDr" id="xGC-8L-LdZ"/>
+                        <outlet property="flowLayout" destination="hJx-oC-JHw" id="bq5-Wh-2M7"/>
+                        <segue destination="wEv-Nd-7k3" kind="show" identifier="toImageDetail" id="OdM-Qz-4Nt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="374"/>
+        </scene>
+        <!--View-->
+        <scene sceneID="2wF-K1-d3C">
+            <objects>
+                <viewController title="View" id="wEv-Nd-7k3" customClass="DetailViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wxk-GX-HIL"/>
+                        <viewControllerLayoutGuide type="bottom" id="NVt-jx-sct"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6Ft-aB-NUq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-gC-fPG">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ahQ-gC-fPG" firstAttribute="top" secondItem="wxk-GX-HIL" secondAttribute="bottom" id="D1J-UX-BMu"/>
+                            <constraint firstAttribute="trailing" secondItem="ahQ-gC-fPG" secondAttribute="trailing" id="GPO-ce-zGl"/>
+                            <constraint firstItem="ahQ-gC-fPG" firstAttribute="leading" secondItem="6Ft-aB-NUq" secondAttribute="leading" id="K1C-Bn-sfJ"/>
+                            <constraint firstItem="NVt-jx-sct" firstAttribute="top" secondItem="ahQ-gC-fPG" secondAttribute="bottom" id="OZc-Gf-SLF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="img" destination="ahQ-gC-fPG" id="s5y-l4-Xq8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="coj-r3-DKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1138" y="374"/>
+        </scene>
+    </scenes>
+</document>
