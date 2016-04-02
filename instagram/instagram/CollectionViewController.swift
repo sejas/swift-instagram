@@ -57,29 +57,27 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
                 displayError("Could not parse the data as JSON: '\(data)'")
                 return
             }
-//            print(parsedResult)
-//            guard let imagesJson = parsedResult["data"] as? NSArray where imagesJson.count >= 0 else {
-//                displayError("data cuantos \(parsedResult["data"])")
-//                return
-//            }
+
             if let imagesJson = parsedResult["data"] as? [[String:AnyObject]] {
                 for foto in imagesJson {
-                    if let thumbnail = foto["images"]!["low_resolution"] as? [String:AnyObject] {
-                        if let url = thumbnail["url"] as? String {
-                            let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: url)!, completionHandler: { (data, response, error) in
-                                if nil == error {
-                                    let instagramImage = InstagramImage(imgLow: UIImage(data: data!)!, img: UIImage(data: data!)!)
-                                    performUIUpdatesOnMain({
-                                        self.images.append(instagramImage)
-                                        self.collection.reloadData()
-                                    })
-                                }else{
-                                    displayError("Error downloading image error\(error) url: \(url)")
-                                }
-                            })
-                            task.resume()
-                        }
+                    
+                    guard let resolutions = foto["images"] as? [String:AnyObject],
+                          let thumbnail = resolutions["low_resolution"] as? [String:AnyObject],
+                          let url = thumbnail["url"] as? String  else {
+                            return;
                     }
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: url)!, completionHandler: { (data, response, error) in
+                        if nil == error {
+                            let instagramImage = InstagramImage(imgLow: UIImage(data: data!)!, img: UIImage(data: data!)!)
+                            performUIUpdatesOnMain({
+                                self.images.append(instagramImage)
+                                self.collection.reloadData()
+                            })
+                        }else{
+                            displayError("Error downloading image error\(error) url: \(url)")
+                        }
+                    })
+                    task.resume()
                 }
             }
         }
