@@ -68,29 +68,30 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
                     }
                     
                     
-                    if let data = NSData(contentsOfURL: NSURL(string: url)!) {
-                        let instagramImage = InstagramImage(imgLow: UIImage(data: data)!, img: UIImage(data: data)!)
-                        performUIUpdatesOnMain({
-                            self.images.append(instagramImage)
-                            self.collection.reloadData()
-                        })
-                    } else {
-                        displayError("Image does not exist at \(url)")
-                    }
-                    
-//                    let completionHandler = { (data:NSData?, response:NSURLResponse?, error:NSError?) in
-//                        if nil == error {
-//                            let instagramImage = InstagramImage(imgLow: UIImage(data: data!)!, img: UIImage(data: data!)!)
-//                            performUIUpdatesOnMain({
-//                                self.images.append(instagramImage)
-//                                self.collection.reloadData()
-//                            })
-//                        }else{
-//                            displayError("Error downloading image error\(error) url: \(url)")
-//                        }
+//                    if let data = NSData(contentsOfURL: NSURL(string: url)!) {
+//                        let instagramImage = InstagramImage(imgLow: UIImage(data: data)!, img: UIImage(data: data)!)
+//                        performUIUpdatesOnMain({
+//                            self.images.append(instagramImage)
+//                            self.collection.reloadData()
+//                        })
+//                    } else {
+//                        displayError("Image does not exist at \(url)")
 //                    }
-//                    let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: url)!, completionHandler: completionHandler)
-//                    task.resume()
+                    
+                    let completionHandler = { (data:NSData?, response:NSURLResponse?, error:NSError?) in
+                        if nil == error {
+                            let instagramImage = InstagramImage(imgLow: UIImage(data: data!)!, img: UIImage(data: data!)!)
+                            performUIUpdatesOnMain({
+                                self.images.append(instagramImage)
+                                self.collection.reloadData()
+                            })
+                        }else{
+                            displayError("Error downloading image error\(error) url: \(url)")
+                        }
+                    }
+                    let task = NSURLSession.sharedSession().dataTaskWithURL(NSURL(string: url)!, completionHandler: completionHandler)
+                    task.resume()
+                    
                 }
             }
         }

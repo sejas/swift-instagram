@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var img: UIImageView!
     var instagramImage = InstagramImage(imgLow: UIImage(),img: UIImage())
@@ -18,15 +18,26 @@ class DetailViewController: UIViewController {
         img.image = instagramImage.img
     }
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        // we hide tabbar
-//        tabBarController?.tabBar.hidden = true
-//    }
-//    override func viewWillDisappear(animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        // we show tabbar before leave
-//        tabBarController?.tabBar.hidden = false
-//    }
+    //MARK: Gestures
+    //From delegate
+    func gestureRecognizer(_: UIGestureRecognizer,
+                           shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+        return true
+    }
+    @IBAction func actionGesturePinch(sender: UIPinchGestureRecognizer) {
+        print("actionGesturePinch",sender)
+        if let view = sender.view {
+            view.transform = CGAffineTransformScale(view.transform,
+                                                    sender.scale, sender.scale)
+            sender.scale = 1
+        }
+    }
+    @IBAction func actionGestureRotate(sender : UIRotationGestureRecognizer) {
+        print("actionGestureRotate",sender)
+        if let view = sender.view {
+            view.transform = CGAffineTransformRotate(view.transform, sender.rotation)
+            sender.rotation = 0
+        }
+    }
     
 }

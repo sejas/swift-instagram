@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="305" y="374"/>
         </scene>
-        <!--View-->
+        <!--Photos Instagram-->
         <scene sceneID="2wF-K1-d3C">
             <objects>
-                <viewController title="View" id="wEv-Nd-7k3" customClass="DetailViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Photos Instagram" id="wEv-Nd-7k3" customClass="DetailViewController" customModule="instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wxk-GX-HIL"/>
                         <viewControllerLayoutGuide type="bottom" id="NVt-jx-sct"/>
@@ -104,11 +104,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-gC-fPG">
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-gC-fPG">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FyX-uN-edm" appends="YES" id="FN5-e5-hJr"/>
+                                    <outletCollection property="gestureRecognizers" destination="avr-dh-BSX" appends="YES" id="rbM-VX-N85"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="ahQ-gC-fPG" firstAttribute="top" secondItem="wxk-GX-HIL" secondAttribute="bottom" id="D1J-UX-BMu"/>
                             <constraint firstAttribute="trailing" secondItem="ahQ-gC-fPG" secondAttribute="trailing" id="GPO-ce-zGl"/>
@@ -121,6 +127,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coj-r3-DKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pinchGestureRecognizer id="FyX-uN-edm">
+                    <connections>
+                        <action selector="actionGesturePinch:" destination="wEv-Nd-7k3" id="rVq-yV-WEO"/>
+                        <outlet property="delegate" destination="wEv-Nd-7k3" id="iwW-fe-Ozp"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="avr-dh-BSX">
+                    <connections>
+                        <action selector="actionGestureRotate:" destination="wEv-Nd-7k3" id="OiL-db-g8I"/>
+                        <outlet property="delegate" destination="wEv-Nd-7k3" id="N77-kJ-R67"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1138" y="374"/>
         </scene>
