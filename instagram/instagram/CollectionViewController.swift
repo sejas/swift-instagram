@@ -67,20 +67,13 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
                             return;
                     }
                     
-                    
-//                    if let data = NSData(contentsOfURL: NSURL(string: url)!) {
-//                        let instagramImage = InstagramImage(imgLow: UIImage(data: data)!, img: UIImage(data: data)!)
-//                        performUIUpdatesOnMain({
-//                            self.images.append(instagramImage)
-//                            self.collection.reloadData()
-//                        })
-//                    } else {
-//                        displayError("Image does not exist at \(url)")
-//                    }
+                    guard let tags = foto["tags"] as? [String] else {
+                        return
+                    }
                     
                     let completionHandler = { (data:NSData?, response:NSURLResponse?, error:NSError?) in
                         if nil == error {
-                            let instagramImage = InstagramImage(imgLow: UIImage(data: data!)!, img: UIImage(data: data!)!)
+                            let instagramImage = InstagramImage(imgLow: UIImage(data: data!)!, img: UIImage(data: data!)!, tags: tags )
                             performUIUpdatesOnMain({
                                 self.images.append(instagramImage)
                                 self.collection.reloadData()

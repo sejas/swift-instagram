@@ -11,4 +11,5 @@ import UIKit
 struct InstagramImage {
     var imgLow: UIImage
     var img: UIImage
+    var tags:[String]
 }
