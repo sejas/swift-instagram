@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -104,8 +105,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vjc-9t-sHc">
+                                <rect key="frame" x="20" y="311" width="560" height="21"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wH1-x1-6i4">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#Lista de etiquetas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZ0-jb-IcR">
+                                                <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-gC-fPG">
-                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <rect key="frame" x="0.0" y="72" width="600" height="536"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="FyX-uN-edm" appends="YES" id="FN5-e5-hJr"/>
@@ -116,14 +133,20 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vjc-9t-sHc" secondAttribute="trailing" id="4HH-Mi-a2n"/>
                             <constraint firstItem="ahQ-gC-fPG" firstAttribute="top" secondItem="wxk-GX-HIL" secondAttribute="bottom" id="D1J-UX-BMu"/>
+                            <constraint firstItem="Vjc-9t-sHc" firstAttribute="leading" secondItem="6Ft-aB-NUq" secondAttribute="leadingMargin" id="Dcx-XT-6as"/>
                             <constraint firstAttribute="trailing" secondItem="ahQ-gC-fPG" secondAttribute="trailing" id="GPO-ce-zGl"/>
                             <constraint firstItem="ahQ-gC-fPG" firstAttribute="leading" secondItem="6Ft-aB-NUq" secondAttribute="leading" id="K1C-Bn-sfJ"/>
                             <constraint firstItem="NVt-jx-sct" firstAttribute="top" secondItem="ahQ-gC-fPG" secondAttribute="bottom" id="OZc-Gf-SLF"/>
+                            <constraint firstItem="NVt-jx-sct" firstAttribute="top" secondItem="Vjc-9t-sHc" secondAttribute="bottom" constant="89" id="e3d-Wa-scY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="img" destination="ahQ-gC-fPG" id="s5y-l4-Xq8"/>
+                        <outlet property="lblTags" destination="wZ0-jb-IcR" id="KMC-0q-ebm"/>
+                        <outlet property="stackHorizontalTags" destination="wH1-x1-6i4" id="vaf-80-Vka"/>
+                        <outlet property="stackVerticalTags" destination="Vjc-9t-sHc" id="9Lq-89-Oop"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="coj-r3-DKS" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,12 +10,40 @@ import UIKit
 
 class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
     
+    @IBOutlet weak var stackHorizontalTags: UIStackView!
+    @IBOutlet weak var stackVerticalTags: UIStackView!
     @IBOutlet weak var img: UIImageView!
-    var instagramImage = InstagramImage(imgLow: UIImage(),img: UIImage())
+    //Just for Storyboard, actually it's hidden
+    @IBOutlet weak var lblTags: UILabel!
+    var instagramImage = InstagramImage(imgLow: UIImage(),img: UIImage(), tags: [String]())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         img.image = instagramImage.img
+        showTags()
+    }
+    //MARK: TAGS
+    func showTags(){
+        lblTags.hidden = true
+        var stackView = stackHorizontalTags
+        var size:CGFloat = 0
+        let deviceWidth = self.view.bounds.size.width
+        for tag in instagramImage.tags {
+            let label = UILabel()
+            label.textAlignment = NSTextAlignment.Center
+            label.text = "#\(tag)  "
+            label.sizeToFit()
+            size += label.frame.width
+//            if size > deviceWidth {
+//                //We add new horizontal stack
+//                stackView = UIStackView()
+//                stackView.axis = .Horizontal
+//                stackView.distribution = .EqualSpacing;
+////                stackView.alignment = .;
+//                stackVerticalTags.addArrangedSubview(stackView)
+//            }
+            stackHorizontalTags.addArrangedSubview(label)
+        }
     }
     
     //MARK: Gestures
