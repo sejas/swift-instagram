@@ -26,7 +26,7 @@ class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
     func showTags(){
         lblTags.hidden = true
         var stackView = stackHorizontalTags
-        var size:CGFloat = 0
+        var size:CGFloat = 60
         let deviceWidth = self.view.bounds.size.width
         for tag in instagramImage.tags {
             let label = UILabel()
@@ -34,15 +34,18 @@ class DetailViewController: UIViewController, UIGestureRecognizerDelegate {
             label.text = "#\(tag)  "
             label.sizeToFit()
             size += label.frame.width
-//            if size > deviceWidth {
-//                //We add new horizontal stack
-//                stackView = UIStackView()
-//                stackView.axis = .Horizontal
-//                stackView.distribution = .EqualSpacing;
-////                stackView.alignment = .;
-//                stackVerticalTags.addArrangedSubview(stackView)
-//            }
-            stackHorizontalTags.addArrangedSubview(label)
+            print("size > deviceWidth", size , deviceWidth)
+            if size > deviceWidth {
+                //We add new horizontal stack
+                size = 60
+                stackView = UIStackView()
+                stackView.axis = .Horizontal
+                stackView.distribution = .EqualSpacing;
+                //stackView.alignment = .;
+                stackView.backgroundColor = UIColor.redColor()
+                stackVerticalTags.addArrangedSubview(stackView)
+            }
+            stackView.addArrangedSubview(label)
         }
     }
     

@@ -105,8 +105,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-gC-fPG">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FyX-uN-edm" appends="YES" id="FN5-e5-hJr"/>
+                                    <outletCollection property="gestureRecognizers" destination="avr-dh-BSX" appends="YES" id="rbM-VX-N85"/>
+                                </connections>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Vjc-9t-sHc">
-                                <rect key="frame" x="20" y="311" width="560" height="21"/>
+                                <rect key="frame" x="20" y="400" width="560" height="21"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wH1-x1-6i4">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
@@ -121,25 +129,17 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahQ-gC-fPG">
-                                <rect key="frame" x="0.0" y="72" width="600" height="536"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="FyX-uN-edm" appends="YES" id="FN5-e5-hJr"/>
-                                    <outletCollection property="gestureRecognizers" destination="avr-dh-BSX" appends="YES" id="rbM-VX-N85"/>
-                                </connections>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vjc-9t-sHc" secondAttribute="trailing" id="4HH-Mi-a2n"/>
-                            <constraint firstItem="ahQ-gC-fPG" firstAttribute="top" secondItem="wxk-GX-HIL" secondAttribute="bottom" id="D1J-UX-BMu"/>
-                            <constraint firstItem="Vjc-9t-sHc" firstAttribute="leading" secondItem="6Ft-aB-NUq" secondAttribute="leadingMargin" id="Dcx-XT-6as"/>
-                            <constraint firstAttribute="trailing" secondItem="ahQ-gC-fPG" secondAttribute="trailing" id="GPO-ce-zGl"/>
-                            <constraint firstItem="ahQ-gC-fPG" firstAttribute="leading" secondItem="6Ft-aB-NUq" secondAttribute="leading" id="K1C-Bn-sfJ"/>
-                            <constraint firstItem="NVt-jx-sct" firstAttribute="top" secondItem="ahQ-gC-fPG" secondAttribute="bottom" id="OZc-Gf-SLF"/>
-                            <constraint firstItem="NVt-jx-sct" firstAttribute="top" secondItem="Vjc-9t-sHc" secondAttribute="bottom" constant="89" id="e3d-Wa-scY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vjc-9t-sHc" secondAttribute="trailing" id="0JS-o0-On1"/>
+                            <constraint firstItem="NVt-jx-sct" firstAttribute="top" secondItem="Vjc-9t-sHc" secondAttribute="bottom" id="2XR-VP-Ljd"/>
+                            <constraint firstItem="ahQ-gC-fPG" firstAttribute="top" secondItem="wxk-GX-HIL" secondAttribute="bottom" id="90m-Wi-uHZ"/>
+                            <constraint firstItem="NVt-jx-sct" firstAttribute="top" secondItem="ahQ-gC-fPG" secondAttribute="bottom" id="OTI-3a-7Hq"/>
+                            <constraint firstItem="ahQ-gC-fPG" firstAttribute="leading" secondItem="6Ft-aB-NUq" secondAttribute="leading" id="brz-X5-BYT"/>
+                            <constraint firstAttribute="trailing" secondItem="ahQ-gC-fPG" secondAttribute="trailing" id="d4a-zo-nQa"/>
+                            <constraint firstItem="Vjc-9t-sHc" firstAttribute="leading" secondItem="6Ft-aB-NUq" secondAttribute="leadingMargin" id="kC4-gR-01K"/>
                         </constraints>
                     </view>
                     <connections>
@@ -163,7 +163,7 @@
                     </connections>
                 </rotationGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1138" y="374"/>
+            <point key="canvasLocation" x="1139" y="444"/>
         </scene>
     </scenes>
 </document>
