@@ -123,6 +123,7 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.img.image = images[indexPath.row].img
         return cell
     }
+    
     //MARK: Segues
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         collectionView.deselectItemAtIndexPath(indexPath, animated: true)
